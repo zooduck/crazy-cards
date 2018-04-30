@@ -1,0 +1,140 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0 auto;
+  background-color: #eee;
+  font: normal 16px calibri, sans-serif;
+}
+#root {
+  display: flex;
+  width: 100%;
+}
+
+input, select, button {
+  font-size: 24px;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+#crazy-cards {
+  display: flex;
+  flex-direction: column;
+  width: 1024px;
+  margin: auto;
+}
+
+.customer-details-form {
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, .55);
+  background-color: #fff;
+  z-index: 111;
+}
+
+.customer-details-form input, .customer-details-form select {
+  margin-bottom: 10px;
+}
+
+.total-credit-info {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.5em;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 10px;
+  margin-top: 70px;
+}
+.card {
+  display: flex;
+  padding: 10px;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 1);
+  overflow-x: hidden;
+}
+.card > *{
+  margin-right: 10px;
+  font-size: 18px;
+}
+.card label.selected ~ .selected-status {
+  visibility: visible;
+}
+.card label.selected ~ .card-details .card-details__details {
+  visibility: visible;
+  animation: fadeIn .5s both;
+  animation-delay: .10s;
+}
+.card input[type=checkbox] {
+  display: none;
+}
+.card img {
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, .55);
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 180px;
+  cursor: pointer;
+  border: solid 8px transparent;
+}
+
+@media screen and (max-width: 900px) {
+  .cards {
+    margin-top: 100px;
+  }
+  .card {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 600px) {
+  .cards {
+    margin-top: 150px;
+  }
+}
+
+.card-details {
+  display: flex;
+  flex-grow: 1;
+  align-self: baseline;
+  flex-direction: column;
+  min-height: 100px;
+  padding: 10px;
+}
+.card-details__title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: rgba(0, 0, 0, .75);
+  font-weight: bold;
+}
+.card-details__details {
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+}
+.selected-status {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 5px;
+  background: limegreen;
+  align-self: stretch;
+  visibility: hidden;
+}
